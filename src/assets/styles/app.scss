@@ -1,0 +1,87 @@
+@import "./mixins";
+
+.modal {
+  &-heading {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  &-details {
+    display: flex;
+    &-image {
+      position: relative;
+      img {
+        position: relative;
+        z-index: 1;
+        border-radius: 5px;
+        margin-right: 12px;
+      }
+      .like {
+        position: absolute;
+        z-index: 2;
+        transform: scale(1.2);
+        top: 0;
+        right: 0;
+        padding: 7px 22px;
+      }
+    }
+    &-content {
+      &-name {
+        font-size: 18px;
+      }
+      &-brand_name {
+        font-size: 14px;
+        font-weight: 600;
+        color: #434242;
+        margin-bottom: 10px;
+      }
+      &-price {
+        span {
+          &:first-child {
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            color: #a6a6a6;
+            text-decoration: line-through;
+          }
+          font-size: 16px;
+          font-weight: 700;
+          color: rgb(0, 0, 255);
+        }
+      }
+      &-discount,
+      &-trending_value,
+      &-suggestion_value {
+        margin-top: 5px;
+        font-size: 14px;
+        color: #434242;
+        font-weight: 500;
+        @include Flexcenter;
+        justify-content: flex-start;
+        span {
+          margin-left: 4px;
+          font-size: 16px;
+          font-weight: 400;
+          color: black;
+        }
+      }
+      &-star {
+        margin: 10px 0;
+        span {
+          margin-right: 1.5px;
+        }
+      }
+    }
+  }
+  &-buttons {
+    @include Flexcenter;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: 20px;
+    button {
+      height: 40px;
+      min-width: 120px;
+      padding: 0 1rem !important;
+      @include Flexcenter;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+@import "../../assets/styles/mixins";
+
+.home {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  background-image: url(../../assets/images/background_home.jpg);
+  background-size: cover;
+  background-position: center;
+  @include FlexColumn;
+  @include Transition;
+  &-logo {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2rem;
+    img {
+      transform: scale(0.65);
+      mix-blend-mode: multiply;
+    }
+  }
+  &-search {
+    align-self: center;
+    margin-top: 1.8rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    max-width: 850px;
+    input {
+      width: 100%;
+      height: 60px;
+      border: none;
+      border-radius: 12px;
+      font-size: 24px;
+      padding-left: 20px;
+      font-weight: 400 !important;
+      &:focus {
+        outline: none !important;
+        border: none;
+      }
+    }
+    &-button {
+      position: absolute;
+      right: 0;
+      @include Flexcenter;
+      margin-right: 18px;
+      cursor: pointer;
+    }
+    &-list {
+      position: relative;
+      z-index: 6;
+      width: 100%;
+      border-radius: 0 0 12px 12px;
+      position: absolute;
+      top: 0;
+      margin-top: 60px;
+      left: 0;
+      background-color: rgb(245, 245, 245);
+      max-height: 400px;
+      overflow-y: auto;
+      &-item {
+        font-size: 20px;
+        font-weight: 400;
+        padding: 0.5rem 2rem;
+        @include Transition;
+        &:hover {
+          cursor: pointer;
+          background-color: white;
+        }
+      }
+    }
+  }
+  &-list {
+    position: relative;
+    margin: 0 auto 2rem;
+    width: 80%;
+    z-index: 5;
+    background-color: #ffffff;
+    border-radius: 7px;
+    margin-top: 2rem;
+    max-width: 1000px;
+    padding: 1.8rem 2rem;
+    &-trend,
+    &-suggestion {
+      &-heading {
+        font-size: 1.25rem;
+        font-weight: 500;
+        margin-bottom: 12px;
+      }
+    }
+    &-trend {
+      margin-bottom: 2rem;
+      &-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-gap: 20px;
+        &-item {
+          cursor: pointer;
+          img {
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid rgb(172, 171, 171);
+          }
+          &-name {
+            font-size: 14px;
+            margin-top: 7px;
+          }
+        }
+      }
+    }
+    &-suggestion {
+      &-list {
+        @include FlexColumn;
+        &-item-name {
+          display: inline-block;
+          font-size: 14px;
+          margin: 0.35rem 0;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

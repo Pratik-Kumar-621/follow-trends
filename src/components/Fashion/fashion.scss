@@ -1,0 +1,190 @@
+@import "../../assets/styles/mixins";
+
+.fashion {
+  @include FlexColumn;
+  &-logo {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2rem;
+    img {
+      transform: scale(0.65);
+      mix-blend-mode: multiply;
+    }
+  }
+  &-search {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    max-width: 650px;
+    margin-top: -60px;
+    input {
+      width: 100%;
+      height: 48px;
+      border: 1px solid #848484;
+      border-radius: 12px;
+      font-size: 18px;
+      padding-left: 20px;
+      font-weight: 400 !important;
+      &:focus {
+        outline: none !important;
+        border: 1px solid #848484;
+      }
+    }
+    &-button {
+      position: absolute;
+      right: 0;
+      @include Flexcenter;
+      margin-right: 18px;
+      cursor: pointer;
+    }
+    &-list {
+      position: relative;
+      z-index: 6;
+      width: 100%;
+      border-radius: 0 0 7px 7px;
+      position: absolute;
+      top: 0;
+      margin-top: 48px;
+      left: 0;
+      background-color: rgb(245, 245, 245);
+      max-height: 270px;
+      overflow-y: auto;
+      &-item {
+        font-size: 18px;
+        font-weight: 400;
+        padding: 0.5rem 2rem;
+        @include Transition;
+        &:hover {
+          cursor: pointer;
+          background-color: white;
+        }
+      }
+    }
+  }
+  &-heading {
+    padding: 0 40px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 20px 0 10px;
+  }
+  &-content {
+    display: grid;
+    grid-template-columns: 300px auto;
+    &-sidepanel {
+      padding-left: 30px;
+    }
+    .price-collapse {
+      margin: 10px 0;
+    }
+    &-list {
+      display: grid;
+      grid-gap: 27px;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      padding-right: 40px;
+      &-item {
+        border-radius: 2px;
+        @include FlexColumn;
+        &-image {
+          position: relative;
+          img {
+            border-radius: 2px;
+            opacity: 1;
+            @include Transitionin;
+
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+          }
+          .like {
+            z-index: 2;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 12px;
+          }
+          &-detail {
+            transform: scale(0);
+            @include Transitionin;
+            z-index: 2;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            color: white;
+            width: 100%;
+            height: 40px;
+            border-radius: 0 0 2px 2px;
+            background-color: rgb(174, 174, 253);
+            @include Flexcenter;
+          }
+        }
+        &-name {
+          font-size: 14px;
+          font-weight: 400;
+          color: black;
+          margin: 1rem 0 0.25rem;
+        }
+        &-price {
+          padding: 0.15rem 0 0.2rem;
+          span {
+            &:first-child {
+              font-size: 14px !important;
+              font-weight: 500 !important;
+              color: #a6a6a6;
+              text-decoration: line-through;
+            }
+            font-size: 16px;
+            font-weight: 700;
+            color: rgb(0, 0, 255);
+          }
+        }
+        &-star {
+          span {
+            margin-right: 1.5px;
+            font-size: 16px;
+          }
+          @include Flexcenter;
+          justify-content: flex-start;
+          font-size: 12px;
+        }
+        &:hover {
+          .fashion-content-list-item-image {
+            img {
+              opacity: 0.5;
+            }
+            .fashion-content-list-item-image-detail {
+              cursor: pointer;
+              transform: scale(1) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.fashion-brand-heading {
+  font-size: 16px;
+  font-weight: 400;
+  color: black !important;
+  height: 32px;
+  @include Flexcenter;
+  justify-content: space-between;
+}
+
+.ant-collapse-expand-icon {
+  align-self: center !important;
+}
+
+.ant-collapse-content-box {
+  padding: 0 10px !important;
+}
+
+.fashion-brand-item {
+  @include Flexcenter;
+  cursor: pointer;
+  justify-content: flex-start;
+  padding: 0.25rem 0;
+}

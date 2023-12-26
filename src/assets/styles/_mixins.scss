@@ -1,0 +1,22 @@
+@mixin Transition {
+  transition: all 0.25s linear;
+}
+@mixin Transitionin {
+  transition: all 0.25s ease-in;
+}
+@mixin TransitionOut {
+  transition: all 0.25s ease-out;
+}
+
+// Flex
+
+@mixin Flexcenter {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin FlexColumn {
+  display: flex;
+  flex-direction: column;
+}
